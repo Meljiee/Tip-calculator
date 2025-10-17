@@ -1,10 +1,12 @@
 "use client"
-import { useState } from "react";
 import { DollarSign } from "lucide-react";
 
-export default function BillInput() {
-  const [billAmount, setBillAmount] = useState<number | string>("");
+interface BillInputProps {
+  bill: string | number;
+  onBillChange: (value: string | number) => void;
+}
 
+export default function BillInput({ bill, onBillChange }: BillInputProps) {
   return (
     <>
       <label className="text-green-900 text-sm font-bold">
@@ -15,11 +17,12 @@ export default function BillInput() {
         <input
           type="number"
           placeholder="0"
-          value={billAmount}
-          onChange={(e) => setBillAmount(e.target.value)} // ✅ makes it editable
+          value={bill}
+          onChange={(e) => onBillChange(e.target.value)}
           className="pl-12 bg-grey-50 border-2 border-grey-200 h-12 w-full text-right text-2xl font-bold text-green-900 placeholder:text-gray-400 rounded-lg focus:outline-none focus:border-green-400"
         />
       </div>
     </>
   );
 }
+
