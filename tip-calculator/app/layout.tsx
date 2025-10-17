@@ -24,10 +24,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-teal-100`}>
+        <div className="min-h-screen flex flex-col items-center">
+          <header className="py-12">
+            <h1 className="text-green-900 font-extrabold tracking-[0.6em] leading-[1.1] text-2xl text-center">
+              SPLI<br/>TTER
+            </h1>
+          </header>
+          <main className="w-full max-w-5xl px-4 pb-12">
+            <div className="bg-white rounded-3xl shadow-xl p-6 sm:p-8">
+              {children}
+            </div>
+          </main>
+        </div>
       </body>
     </html>
   );

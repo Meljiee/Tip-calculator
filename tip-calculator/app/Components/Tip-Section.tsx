@@ -13,7 +13,7 @@ export default function TipSelection({selectedTip,customTip,onTipSelect,onCustom
   return (
     <div>
       <label className="block text-sm font-semibold mb-4 text-grey-500">Select Tip %</label>
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-3 gap-3">
         {tipPercentages.map((percentage) => (
           <button key={percentage}
                   type="button"
