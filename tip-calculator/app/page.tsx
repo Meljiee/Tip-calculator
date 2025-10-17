@@ -33,26 +33,29 @@ export default function Home() {
 
   return (
     <>
-      <Header/>
-      <div className="grid gap-6 p-4 max-w-3xl mx-auto">
-        <Billsection bill={bill} onBillChange={setBill} />
-        <TipSection
-          selectedTip={selectedTip}
-          customTip={customTip}
-          onTipSelect={(p) => { setSelectedTip(p); setCustomTip(""); }}
-          onCustomTipChange={(v) => { setCustomTip(v); setSelectedTip(null); }}
-        />
-        <PeopleInput people={people} onPeopleChange={setPeople} />
-        <ResultDisplay
-          tipAmount={tipAmount}
-          total={total}
-          bill={bill}
-          selectedTip={selectedTip}
-          customTip={customTip}
-          people={people}
-          handleReset={handleReset}
-          isActive={isResetActive}
-        />
+      <div className="grid gap-6 p-4 max-w-5xl mx-auto md:grid-cols-2">
+        <div className="space-y-6">
+          <Billsection bill={bill} onBillChange={setBill} />
+          <TipSection
+            selectedTip={selectedTip}
+            customTip={customTip}
+            onTipSelect={(p) => { setSelectedTip(p); setCustomTip(""); }}
+            onCustomTipChange={(v) => { setCustomTip(v); setSelectedTip(null); }}
+          />
+          <PeopleInput people={people} onPeopleChange={setPeople} />
+        </div>
+        <div className="md:pl-4">
+          <ResultDisplay
+            tipAmount={tipAmount}
+            total={total}
+            bill={bill}
+            selectedTip={selectedTip}
+            customTip={customTip}
+            people={people}
+            handleReset={handleReset}
+            isActive={isResetActive}
+          />
+        </div>
       </div>
     </>
   );
